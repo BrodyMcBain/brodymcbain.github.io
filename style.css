@@ -3,10 +3,12 @@ a:link, a:visited {
   color: #666666;
   text-decoration: none;
 }
+
 a:hover {
   color: #333333;
   text-decoration: none;
 }
+
 a:active {
   color: #666666;
   text-decoration: none;
@@ -47,12 +49,16 @@ a:active {
   margin-top: 10px;
   padding: 10px;
   width: 250px;
+  height: 50px; /* Ensures the background images fit */
   display: block;
+  text-align: center;
+  line-height: 50px; /* Vertically centers the text */
 }
 
 /* Background images for each link */
 #resumelink {
-  background-image: url(http://brodymcbain.com.au/img/resume.png);
+  background-image: url(http://brodymcbain.com.au/img/resumeBW.png);
+  background-size: cover;
 }
 #resumelink:link, #resumelink:visited {
   background-image: url(http://brodymcbain.com.au/img/resumeBW.png);
@@ -62,7 +68,8 @@ a:active {
 }
 
 #linkedinlink {
-  background-image: url(http://brodymcbain.com.au/img/linkedin.png);
+  background-image: url(http://brodymcbain.com.au/img/linkedinBW.png);
+  background-size: cover;
 }
 #linkedinlink:link, #linkedinlink:visited {
   background-image: url(http://brodymcbain.com.au/img/linkedinBW.png);
@@ -72,7 +79,8 @@ a:active {
 }
 
 #emaillink {
-  background-image: url(http://www.brodymcbain.com.au/img/gmail.png);
+  background-image: url(http://www.brodymcbain.com.au/img/gmailBW.png);
+  background-size: cover;
 }
 #emaillink:link, #emaillink:visited {
   background-image: url(http://www.brodymcbain.com.au/img/gmailBW.png);
@@ -82,7 +90,8 @@ a:active {
 }
 
 #skypelink {
-  background-image: url(http://www.brodymcbain.com.au/img/skype.png);
+  background-image: url(http://www.brodymcbain.com.au/img/skypeBW.png);
+  background-size: cover;
 }
 #skypelink:link, #skypelink:visited {
   background-image: url(http://www.brodymcbain.com.au/img/skypeBW.png);
@@ -92,18 +101,12 @@ a:active {
 }
 
 #facebooklink {
-  background-image: url(http://www.brodymcbain.com.au/img/facebook.png);
+  background-image: url(http://www.brodymcbain.com.au/img/facebookBW.png);
+  background-size: cover;
 }
 #facebooklink:link, #facebooklink:visited {
   background-image: url(http://www.brodymcbain.com.au/img/facebookBW.png);
 }
 #facebooklink:hover, #facebooklink:focus {
   background-image: url(http://www.brodymcbain.com.au/img/facebook.png);
-}
-
-/* Ensures background images resize correctly */
-a {
-  display: block;
-  width: 250px;
-  height: 50px; /* Adjust height if needed */
 }
