@@ -68,36 +68,29 @@ a:active {
 }
 
 .box[data-image="resume"] {
-  background-image: var(--resume-img) url(-BW.png);
+  background-image: var(--resume-img) url(resumeBW.png);
 }
 .box[data-image="resume"]:hover {
-  background-image: var(--resume-img) url(.png);
+  background-image: var(--resume-img) url(resume.png);
 }
 
 .box[data-image="linkedin"] {
-  background-image: var(--linkedin-img) url(-BW.png);
+  background-image: var(--linkedin-img) url(linkedinBW.png);
 }
 .box[data-image="linkedin"]:hover {
-  background-image: var(--linkedin-img) url(.png);
+  background-image: var(--linkedin-img) url(linkedin.png);
 }
 
 .box[data-image="gmail"] {
-  background-image: var(--gmail-img) url(-BW.png);
+  background-image: var(--gmail-img) url(gmailBW.png);
 }
 .box[data-image="gmail"]:hover {
-  background-image: var(--gmail-img) url(.png);
+  background-image: var(--gmail-img) url(gmail.png);
 }
 
 .box[data-image="skype"] {
-  background-image: var(--skype-img) url(-BW.png);
+  background-image: var(--skype-img) url(skypeBW.png);
 }
 .box[data-image="skype"]:hover {
-  background-image: var(--skype-img) url(.png);
-}
-
-.box[data-image="facebook"] {
-  background-image: var(--facebook-img) url(-BW.png);
-}
-.box[data-image="facebook"]:hover {
-  background-image: var(--facebook-img) url(.png);
+  background-image: var(--skype-img) url(skype.png);
 }
