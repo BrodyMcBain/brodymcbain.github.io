@@ -60,11 +60,10 @@ a:active {
 
 /* Background images for each link using CSS Variables */
 :root {
-  --resume-img: url(http://brodymcbain.com.au/img/resumeBW.png);
-  --linkedin-img: url(http://brodymcbain.com.au/img/linkedinBW.png);
-  --gmail-img: url(http://www.brodymcbain.com.au/img/gmailBW.png);
-  --skype-img: url(http://www.brodymcbain.com.au/img/skypeBW.png);
-  --facebook-img: url(http://www.brodymcbain.com.au/img/facebookBW.png);
+  --resume-img: url(http://brodymcbain.com.au/resumeBW.png);
+  --linkedin-img: url(http://brodymcbain.com.au/linkedinBW.png);
+  --gmail-img: url(http://www.brodymcbain.com.au/gmailBW.png);
+  --skype-img: url(http://www.brodymcbain.com.au/skypeBW.png);
 }
 
 .box {
@@ -101,10 +100,6 @@ a:active {
   background-image: var(--skype-img);
 }
 
-.box[data-image="facebook"] {
-  background-image: var(--facebook-img);
-}
-
 /* Change background image on hover */
 .box[data-image="resume"]:hover {
   background-image: url(http://brodymcbain.com.au/img/resume.png);
@@ -120,8 +115,4 @@ a:active {
 
 .box[data-image="skype"]:hover {
   background-image: url(http://www.brodymcbain.com.au/img/skype.png);
-}
-
-.box[data-image="facebook"]:hover {
-  background-image: url(http://www.brodymcbain.com.au/img/facebook.png);
 }
