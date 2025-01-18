@@ -60,11 +60,11 @@ a:active {
 
 /* Background images for each link using CSS Variables */
 :root {
-  --resume-img: url(http://brodymcbain.com.au/img/resume);
-  --linkedin-img: url(http://brodymcbain.com.au/img/linkedin);
-  --gmail-img: url(http://www.brodymcbain.com.au/img/gmail);
-  --skype-img: url(http://www.brodymcbain.com.au/img/skype);
-  --facebook-img: url(http://www.brodymcbain.com.au/img/facebook);
+  --resume-img: url(http://brodymcbain.com.au/resume);
+  --linkedin-img: url(http://brodymcbain.com.au/linkedin);
+  --gmail-img: url(http://www.brodymcbain.com.au/gmail);
+  --skype-img: url(http://www.brodymcbain.com.au/skype);
+  --facebook-img: url(http://www.brodymcbain.com.au/facebook);
 }
 
 .box[data-image="resume"] {
