@@ -54,7 +54,7 @@ a:active {
   display: block;
   text-align: center;
   line-height: 50px; /* Vertically centers the text */
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   transition: background-image 0.3s ease-in-out; /* Smooth transition for hover */
 }
