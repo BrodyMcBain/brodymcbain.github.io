@@ -53,60 +53,51 @@ a:active {
   display: block;
   text-align: center;
   line-height: 50px; /* Vertically centers the text */
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease-in-out; /* Smooth transition for hover */
 }
 
-/* Background images for each link */
-#resumelink {
-  background-image: url(http://brodymcbain.com.au/img/resumeBW.png);
-  background-size: cover;
-}
-#resumelink:link, #resumelink:visited {
-  background-image: url(http://brodymcbain.com.au/img/resumeBW.png);
-}
-#resumelink:hover, #resumelink:focus {
-  background-image: url(http://brodymcbain.com.au/img/resume.png);
+/* Background images for each link using CSS Variables */
+:root {
+  --resume-img: url(http://brodymcbain.com.au/img/resume);
+  --linkedin-img: url(http://brodymcbain.com.au/img/linkedin);
+  --gmail-img: url(http://www.brodymcbain.com.au/img/gmail);
+  --skype-img: url(http://www.brodymcbain.com.au/img/skype);
+  --facebook-img: url(http://www.brodymcbain.com.au/img/facebook);
 }
 
-#linkedinlink {
-  background-image: url(http://brodymcbain.com.au/img/linkedinBW.png);
-  background-size: cover;
+.box[data-image="resume"] {
+  background-image: var(--resume-img) url(-BW.png);
 }
-#linkedinlink:link, #linkedinlink:visited {
-  background-image: url(http://brodymcbain.com.au/img/linkedinBW.png);
-}
-#linkedinlink:hover, #linkedinlink:focus {
-  background-image: url(http://brodymcbain.com.au/img/linkedin.png);
+.box[data-image="resume"]:hover {
+  background-image: var(--resume-img) url(.png);
 }
 
-#emaillink {
-  background-image: url(http://www.brodymcbain.com.au/img/gmailBW.png);
-  background-size: cover;
+.box[data-image="linkedin"] {
+  background-image: var(--linkedin-img) url(-BW.png);
 }
-#emaillink:link, #emaillink:visited {
-  background-image: url(http://www.brodymcbain.com.au/img/gmailBW.png);
-}
-#emaillink:hover, #emaillink:focus {
-  background-image: url(http://www.brodymcbain.com.au/img/gmail.png);
+.box[data-image="linkedin"]:hover {
+  background-image: var(--linkedin-img) url(.png);
 }
 
-#skypelink {
-  background-image: url(http://www.brodymcbain.com.au/img/skypeBW.png);
-  background-size: cover;
+.box[data-image="gmail"] {
+  background-image: var(--gmail-img) url(-BW.png);
 }
-#skypelink:link, #skypelink:visited {
-  background-image: url(http://www.brodymcbain.com.au/img/skypeBW.png);
-}
-#skypelink:hover, #skypelink:focus {
-  background-image: url(http://www.brodymcbain.com.au/img/skype.png);
+.box[data-image="gmail"]:hover {
+  background-image: var(--gmail-img) url(.png);
 }
 
-#facebooklink {
-  background-image: url(http://www.brodymcbain.com.au/img/facebookBW.png);
-  background-size: cover;
+.box[data-image="skype"] {
+  background-image: var(--skype-img) url(-BW.png);
 }
-#facebooklink:link, #facebooklink:visited {
-  background-image: url(http://www.brodymcbain.com.au/img/facebookBW.png);
+.box[data-image="skype"]:hover {
+  background-image: var(--skype-img) url(.png);
 }
-#facebooklink:hover, #facebooklink:focus {
-  background-image: url(http://www.brodymcbain.com.au/img/facebook.png);
+
+.box[data-image="facebook"] {
+  background-image: var(--facebook-img) url(-BW.png);
+}
+.box[data-image="facebook"]:hover {
+  background-image: var(--facebook-img) url(.png);
 }
