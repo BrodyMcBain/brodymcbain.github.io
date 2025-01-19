@@ -88,7 +88,7 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* Make images always visible and overlay them */
+    /* Position the images in the center and show grayscale by default */
     .link-box img {
         position: absolute;
         top: 50%;
@@ -96,23 +96,17 @@
         transform: translate(-50%, -50%);
         width: 270px;
         height: 40px;
-        z-index: -1; /* Keeps the image behind the text */
-        transition: opacity 0.3s ease; /* Smooth transition */
+        transition: filter 0.3s ease; /* Smooth transition for filter change */
     }
 
-    /* Make grayscale image always visible */
-    .link-box img.bw {
-        opacity: 1; /* Initially fully visible */
-        filter: grayscale(100%); /* Apply grayscale */
+    /* Show grayscale image by default */
+    .link-box img.grayscale {
+        filter: grayscale(100%); /* Grayscale effect by default */
     }
 
-    /* On hover, show the colored image and hide the grayscale one */
-    .link-box:hover img.bw {
-        opacity: 0; /* Hide grayscale image on hover */
-    }
-
-    .link-box:hover img.color {
-        opacity: 1; /* Show color image on hover */
+    /* When hovered, remove the grayscale and show color */
+    .link-box:hover img.grayscale {
+        filter: grayscale(0%); /* Remove grayscale on hover */
     }
 
     /* Style for link hover effects */
@@ -158,29 +152,25 @@
         <div class="links-container">
             <div class="link-box">
                 <a href="resume.pdf" target="_blank">
-                    <img class="bw" src="http://brodymcbain.com.au/img/resumeBW.png" alt="Resume" class="bw">
-                    <img class="color" src="http://brodymcbain.com.au/img/resume.png" alt="Resume" class="color">
+                    <img class="grayscale" src="http://brodymcbain.com.au/img/resume.png" alt="Resume">
                     <span>Resume</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="http://www.linkedin.com/in/brodymcbain" target="_blank">
-                    <img class="bw" src="http://brodymcbain.com.au/img/linkedinBW.png" alt="LinkedIn" class="bw">
-                    <img class="color" src="http://brodymcbain.com.au/img/linkedin.png" alt="LinkedIn" class="color">
+                    <img class="grayscale" src="http://brodymcbain.com.au/img/linkedin.png" alt="LinkedIn">
                     <span>LinkedIn</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="mailto:brody.mcbain@gmail.com" target="_blank">
-                    <img class="bw" src="http://brodymcbain.com.au/img/gmailBW.png" alt="Email" class="bw">
-                    <img class="color" src="http://brodymcbain.com.au/img/gmail.png" alt="Email" class="color">
+                    <img class="grayscale" src="http://brodymcbain.com.au/img/gmail.png" alt="Email">
                     <span>Email</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="skype:brody.mcbain?add" target="_blank">
-                    <img class="bw" src="http://brodymcbain.com.au/img/skypeBW.png" alt="Skype" class="bw">
-                    <img class="color" src="http://brodymcbain.com.au/img/skype.png" alt="Skype" class="color">
+                    <img class="grayscale" src="http://brodymcbain.com.au/img/skype.png" alt="Skype">
                     <span>Skype</span>
                 </a>
             </div>
@@ -188,4 +178,3 @@
     </div>
 </body>
 </html>
-
