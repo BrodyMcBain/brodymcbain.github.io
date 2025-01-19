@@ -13,11 +13,11 @@
 
   	gtag('config', 'G-PP4TLSEN15');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Brody McBain - Information Technology Graduate">
-    <title>Brody McBain</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Brody McBain - Information Technology Graduate">
+<title>Brody McBain</title>
+<style>
  /* Reset some basic styling */
 * {
     margin: 0;
@@ -99,6 +99,8 @@ body {
     width: 270px;
     height: 40px;
     z-index: -1; /* Places the image behind the text */
+    filter: grayscale(100%); /* Initially black and white */
+    transition: filter 0.3s ease; /* Smooth transition for filter change */
 }
 
 /* Style for link hover effects */
@@ -111,6 +113,11 @@ body {
 
 .link-box a:hover {
     color: #0077cc;
+}
+
+/* Hover to remove grayscale and show color images */
+.link-box:hover img {
+    filter: grayscale(0%); /* Removes grayscale when hovered */
 }
 
 /* Mobile responsiveness */
@@ -132,10 +139,9 @@ body {
         gap: 10px;
     }
 }
-    </style>
+</style>
 </head>
 <body>
-
     <div class="container">
         <div class="name">Brody McBain</div>
         <div class="subname">B. I.T. (Business Technology)</div>
@@ -145,30 +151,29 @@ body {
         <div class="links-container">
             <div class="link-box">
                 <a href="resume.pdf" target="_blank">
-                    <img src="http://brodymcbain.com.au/img/resume.png" alt="Resume">
+                    <img src="http://brodymcbain.com.au/img/gmailBW.png" alt="Resume">
                     <span>Resume</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="http://www.linkedin.com/in/brodymcbain" target="_blank">
-                    <img src="http://brodymcbain.com.au/img/linkedin.png" alt="LinkedIn">
+                    <img src="http://brodymcbain.com.au/img/linkedinBW.png" alt="LinkedIn">
                     <span>LinkedIn</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="mailto:brody.mcbain@gmail.com" target="_blank">
-                    <img src="http://brodymcbain.com.au/img/gmail.png" alt="Email">
+                    <img src="http://brodymcbain.com.au/img/gmailBW.png" alt="Email">
                     <span>Email</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="skype:brody.mcbain?add" target="_blank">
-                    <img src="http://brodymcbain.com.au/img/skype.png" alt="Skype">
+                    <img src="http://brodymcbain.com.au/img/skypeBW.png" alt="Skype">
                     <span>Skype</span>
                 </a>
             </div>
         </div>
     </div>
-
 </body>
 </html>
