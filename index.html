@@ -88,6 +88,7 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
+    /* Make images always visible and overlay them */
     .link-box img {
         position: absolute;
         top: 50%;
@@ -95,9 +96,23 @@
         transform: translate(-50%, -50%);
         width: 270px;
         height: 40px;
-        z-index: -1; /* Places the image behind the text */
-        filter: grayscale(100%); /* Initially black and white */
-        transition: filter 0.3s ease; /* Smooth transition for filter change */
+        z-index: -1; /* Keeps the image behind the text */
+        transition: opacity 0.3s ease; /* Smooth transition */
+    }
+
+    /* Make grayscale image always visible */
+    .link-box img.bw {
+        opacity: 1; /* Initially fully visible */
+        filter: grayscale(100%); /* Apply grayscale */
+    }
+
+    /* On hover, show the colored image and hide the grayscale one */
+    .link-box:hover img.bw {
+        opacity: 0; /* Hide grayscale image on hover */
+    }
+
+    .link-box:hover img.color {
+        opacity: 1; /* Show color image on hover */
     }
 
     /* Style for link hover effects */
@@ -110,11 +125,6 @@
 
     .link-box a:hover {
         color: #0077cc;
-    }
-
-    /* Hover to remove grayscale and show color images */
-    .link-box:hover img {
-        filter: grayscale(0%); /* Removes grayscale when hovered */
     }
 
     /* Mobile responsiveness */
@@ -148,50 +158,34 @@
         <div class="links-container">
             <div class="link-box">
                 <a href="resume.pdf" target="_blank">
-                    <img class="bw" src="http://brodymcbain.com.au/img/resumeBW.png" alt="Resume" data-color="http://brodymcbain.com.au/img/resume.png">
+                    <img class="bw" src="http://brodymcbain.com.au/img/resumeBW.png" alt="Resume" class="bw">
+                    <img class="color" src="http://brodymcbain.com.au/img/resume.png" alt="Resume" class="color">
                     <span>Resume</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="http://www.linkedin.com/in/brodymcbain" target="_blank">
-                    <img class="bw" src="http://brodymcbain.com.au/img/linkedinBW.png" alt="LinkedIn" data-color="http://brodymcbain.com.au/img/linkedin.png">
+                    <img class="bw" src="http://brodymcbain.com.au/img/linkedinBW.png" alt="LinkedIn" class="bw">
+                    <img class="color" src="http://brodymcbain.com.au/img/linkedin.png" alt="LinkedIn" class="color">
                     <span>LinkedIn</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="mailto:brody.mcbain@gmail.com" target="_blank">
-                    <img class="bw" src="http://brodymcbain.com.au/img/gmailBW.png" alt="Email" data-color="http://brodymcbain.com.au/img/gmail.png">
+                    <img class="bw" src="http://brodymcbain.com.au/img/gmailBW.png" alt="Email" class="bw">
+                    <img class="color" src="http://brodymcbain.com.au/img/gmail.png" alt="Email" class="color">
                     <span>Email</span>
                 </a>
             </div>
             <div class="link-box">
                 <a href="skype:brody.mcbain?add" target="_blank">
-                    <img class="bw" src="http://brodymcbain.com.au/img/skypeBW.png" alt="Skype" data-color="http://brodymcbain.com.au/img/skype.png">
+                    <img class="bw" src="http://brodymcbain.com.au/img/skypeBW.png" alt="Skype" class="bw">
+                    <img class="color" src="http://brodymcbain.com.au/img/skype.png" alt="Skype" class="color">
                     <span>Skype</span>
                 </a>
             </div>
         </div>
     </div>
-
-    <script>
-        // Add hover effect for changing images
-        const linkBoxes = document.querySelectorAll('.link-box');
-
-        linkBoxes.forEach(linkBox => {
-            const img = linkBox.querySelector('img');
-            const originalSrc = img.getAttribute('data-color');
-
-            linkBox.addEventListener('mouseenter', () => {
-                img.src = originalSrc;  // Change to original color image
-                img.style.filter = 'none';  // Remove grayscale
-            });
-
-            linkBox.addEventListener('mouseleave', () => {
-                img.src = img.src.replace(/\.png$/, 'BW.png');  // Change back to grayscale
-                img.style.filter = 'grayscale(100%)';  // Reapply grayscale
-            });
-        });
-    </script>
 </body>
 </html>
 
