@@ -90,15 +90,10 @@
 
         /* Image settings */
         .link-box img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             width: 270px;
             height: 40px;
-            z-index: 0; /* Image is behind the text */
-            filter: grayscale(100%); /* Grayscale image by default */
             transition: filter 0.3s ease; /* Smooth transition for filter change */
+            filter: grayscale(100%); /* Grayscale image by default */
         }
 
         /* Text settings */
@@ -107,7 +102,8 @@
             color: #333;
             font-weight: bold;
             position: relative;
-            z-index: 1; /* Text is above the image */
+            z-index: 1; /* Ensure text is on top */
+            display: block; /* Make span block to allow proper text layout */
         }
 
         .link-box a:hover {
