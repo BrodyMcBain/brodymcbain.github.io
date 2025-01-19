@@ -88,7 +88,7 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* Position the images in the center and show grayscale by default */
+    /* Position the images in the center */
     .link-box img {
         position: absolute;
         top: 50%;
@@ -97,7 +97,6 @@
         width: 270px;
         height: 40px;
         transition: filter 0.3s ease; /* Smooth transition for filter change */
-        z-index: -1; /* Place the image behind the text */
     }
 
     /* Show grayscale image by default */
@@ -105,7 +104,7 @@
         filter: grayscale(100%); /* Grayscale effect by default */
     }
 
-    /* When hovered, remove the grayscale and show color */
+    /* When hovered, show the color image (by removing grayscale) */
     .link-box:hover img.grayscale {
         filter: grayscale(0%); /* Remove grayscale on hover */
     }
