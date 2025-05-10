@@ -12,6 +12,13 @@
 
     <!-- LinkedIn Badge Script -->
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    
+    <!-- Pre-load LinkedIn badge -->
+    <div style="display: none;">
+        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="brodymcbain" data-version="v1">
+            <a class="badge-base__link LI-simple-link" href="https://au.linkedin.com/in/brodymcbain?trk=profile-badge">Brody McBain</a>
+        </div>
+    </div>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -135,6 +142,20 @@
             transition: opacity 0.3s ease;
             opacity: 0;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            background-color: white;
+            border-radius: 8px;
+            padding: 4px;
+            width: 300px; /* Ensure there's enough width for the badge */
+        }
+        
+        /* Fix LinkedIn badge styling issues */
+        #linkedin-badge-container .LI-badge-container {
+            margin: 0 auto !important;
+        }
+        
+        /* Remove default shadow from LinkedIn badge to use our custom one */
+        #linkedin-badge-container .LI-badge-container.LI-badge-container-vertical {
+            box-shadow: none !important;
         }
 
         @media (max-width: 768px) {
@@ -205,13 +226,33 @@
     </div>
 
     <script>
+        // Function to force LinkedIn badge to initialize
+        function initializeLinkedInBadge() {
+            // Check if the LinkedIn script has loaded
+            if (typeof LI !== 'undefined' && LI.badge) {
+                // Force badge initialization 
+                LI.badge.init();
+            } else {
+                // Retry after a short delay if not loaded yet
+                setTimeout(initializeLinkedInBadge, 100);
+            }
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             const linkedinBox = document.getElementById('linkedin-box');
             const badgeContainer = document.getElementById('linkedin-badge-container');
+            let badgeInitialized = false;
             
             // Show badge when hovering over LinkedIn box
             linkedinBox.addEventListener('mouseenter', function() {
                 badgeContainer.style.display = 'block';
+                
+                // Initialize the badge on first hover if not already done
+                if (!badgeInitialized) {
+                    initializeLinkedInBadge();
+                    badgeInitialized = true;
+                }
+                
                 // Small delay to ensure smooth appearance after display is set
                 setTimeout(() => {
                     badgeContainer.style.opacity = '1';
