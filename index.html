@@ -121,18 +121,14 @@
             text-align: center;
         }
 
+        /* Initial hidden state for the LinkedIn badge */
         .LI-profile-badge {
-            display: none;
-        }
-
-        .link-box:hover .LI-profile-badge {
-            display: block;
             position: absolute;
-            top: 100%;
+            top: 0;
             left: 0;
-            width: 100%;
-            text-align: center;
-            margin-top: 10px;
+            width: 200px; /* Set a width for the badge */
+            display: none;
+            transition: transform 0.2s ease-out;
         }
 
         @media (max-width: 768px) {
@@ -193,5 +189,33 @@
             </div> 
         </div>
     </div>
+
+    <script>
+        // Get the LinkedIn link and badge
+        const linkedinLink = document.querySelector('.link-box a[href="http://www.linkedin.com/in/brodymcbain"]');
+        const linkedinBadge = document.querySelector('.LI-profile-badge');
+        
+        // Show the badge when the mouse hovers over the LinkedIn link
+        linkedinLink.addEventListener('mouseenter', () => {
+            linkedinBadge.style.display = 'block';
+        });
+
+        // Hide the badge when the mouse leaves
+        linkedinLink.addEventListener('mouseleave', () => {
+            linkedinBadge.style.display = 'none';
+        });
+
+        // Move the badge with the mouse
+        linkedinLink.addEventListener('mousemove', (event) => {
+            const badgeWidth = linkedinBadge.offsetWidth;
+            const badgeHeight = linkedinBadge.offsetHeight;
+
+            const mouseX = event.pageX;
+            const mouseY = event.pageY;
+
+            linkedinBadge.style.left = mouseX + 'px';
+            linkedinBadge.style.top = mouseY + 'px';
+        });
+    </script>
 </body>
 </html>
