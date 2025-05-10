@@ -89,7 +89,7 @@
         .link-box:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            background-color: #e8f4ff; /* Subtle light background */
+            background-color: #e8f4ff;
         }
 
         .link-box img {
@@ -121,16 +121,23 @@
             text-align: center;
         }
 
-        /* Initial hidden state for the LinkedIn badge */
-        .LI-profile-badge {
+        .badge-container {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 200px; /* Set a width for the badge */
-            display: none;
-            transition: transform 0.2s ease-out;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
         }
 
+        .cursor-follow {
+            position: absolute;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            transition: transform 0.1s ease-out;
+        }
+        
         @media (max-width: 768px) {
             .name {
                 font-size: 2rem;
@@ -165,14 +172,16 @@
                     <img src="http://brodymcbain.com.au/img/resume.png" alt="Resume">
                 </a>
             </div>
-            <div class="link-box">
+            <div class="link-box" id="linkedin-box">
                 <a href="http://www.linkedin.com/in/brodymcbain" target="_blank">
                     <span>LinkedIn</span>
                     <img src="http://brodymcbain.com.au/img/linkedin.png" alt="LinkedIn">
                 </a>
-                <!-- LinkedIn Public Badge -->
-                <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="brodymcbain" data-version="v1">
-                    <a class="badge-base__link LI-simple-link" href="https://au.linkedin.com/in/brodymcbain?trk=profile-badge">Brody McBain</a>
+                <div class="badge-container">
+                    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="brodymcbain" data-version="v1">
+                        <a class="badge-base__link LI-simple-link" href="https://au.linkedin.com/in/brodymcbain?trk=profile-badge">Brody McBain</a>
+                    </div>
                 </div>
             </div>
             <div class="link-box">
@@ -186,36 +195,28 @@
                     <span>Teams</span>
                     <img src="http://brodymcbain.com.au/img/teams.png" alt="Teams">
                 </a>
-            </div> 
+            </div>
         </div>
     </div>
 
     <script>
-        // Get the LinkedIn link and badge
-        const linkedinLink = document.querySelector('.link-box a[href="http://www.linkedin.com/in/brodymcbain"]');
-        const linkedinBadge = document.querySelector('.LI-profile-badge');
+        const linkedinBox = document.getElementById('linkedin-box');
+        const badgeContainer = document.querySelector('.badge-container');
         
-        // Show the badge when the mouse hovers over the LinkedIn link
-        linkedinLink.addEventListener('mouseenter', () => {
-            linkedinBadge.style.display = 'block';
+        linkedinBox.addEventListener('mouseenter', function() {
+            badgeContainer.classList.add('cursor-follow');
         });
 
-        // Hide the badge when the mouse leaves
-        linkedinLink.addEventListener('mouseleave', () => {
-            linkedinBadge.style.display = 'none';
+        linkedinBox.addEventListener('mousemove', function(e) {
+            const x = e.clientX;
+            const y = e.clientY;
+            badgeContainer.style.transform = `translate3d(${x - 50}px, ${y - 50}px, 0)`;
         });
 
-        // Move the badge with the mouse
-        linkedinLink.addEventListener('mousemove', (event) => {
-            const badgeWidth = linkedinBadge.offsetWidth;
-            const badgeHeight = linkedinBadge.offsetHeight;
-
-            const mouseX = event.pageX;
-            const mouseY = event.pageY;
-
-            linkedinBadge.style.left = mouseX + 'px';
-            linkedinBadge.style.top = mouseY + 'px';
+        linkedinBox.addEventListener('mouseleave', function() {
+            badgeContainer.classList.remove('cursor-follow');
         });
     </script>
 </body>
 </html>
+
