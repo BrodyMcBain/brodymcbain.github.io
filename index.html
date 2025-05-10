@@ -10,6 +10,9 @@
         gtag('config', 'G-PP4TLSEN15');
     </script>
 
+    <!-- LinkedIn Badge Script -->
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Brody McBain - Information Technology Graduate">
@@ -26,7 +29,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: #333;
-			background: linear-gradient(to bottom, #f0f0f0, #d9d9d9);
+            background: linear-gradient(to bottom, #f0f0f0, #d9d9d9);
             <!--background: #f0f0f0 url('http://brodymcbain.com.au/img/background.png') repeat; -->
         }
 
@@ -90,8 +93,7 @@
         .link-box:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-			background-color: #e8f4ff; /* Subtle light background */
-
+            background-color: #e8f4ff; /* Subtle light background */
         }
 
         .link-box img {
@@ -123,6 +125,18 @@
             text-align: center;
         }
 
+        /* LinkedIn Badge Styles */
+        #linkedin-badge-container {
+            position: fixed;
+            display: none;
+            z-index: 1000;
+            pointer-events: none; /* Prevents the badge from interfering with mouse events */
+            transform: translate(-50%, -120%); /* Position above cursor */
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
         @media (max-width: 768px) {
             .name {
                 font-size: 2rem;
@@ -135,6 +149,11 @@
             .links-container {
                 grid-template-columns: 1fr;
                 gap: 10px;
+            }
+            
+            /* Adjust badge position for mobile */
+            #linkedin-badge-container {
+                transform: translate(-50%, -100%);
             }
         }
     </style>
@@ -157,7 +176,7 @@
                     <img src="http://brodymcbain.com.au/img/resume.png" alt="Resume">
                 </a>
             </div>
-            <div class="link-box">
+            <div class="link-box" id="linkedin-box">
                 <a href="http://www.linkedin.com/in/brodymcbain" target="_blank">
                     <span>LinkedIn</span>
                     <img src="http://brodymcbain.com.au/img/linkedin.png" alt="LinkedIn">
@@ -177,5 +196,43 @@
             </div> 
         </div>
     </div>
+    
+    <!-- LinkedIn Badge Container -->
+    <div id="linkedin-badge-container">
+        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="brodymcbain" data-version="v1">
+            <a class="badge-base__link LI-simple-link" href="https://au.linkedin.com/in/brodymcbain?trk=profile-badge">Brody McBain</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const linkedinBox = document.getElementById('linkedin-box');
+            const badgeContainer = document.getElementById('linkedin-badge-container');
+            
+            // Show badge when hovering over LinkedIn box
+            linkedinBox.addEventListener('mouseenter', function() {
+                badgeContainer.style.display = 'block';
+                // Small delay to ensure smooth appearance after display is set
+                setTimeout(() => {
+                    badgeContainer.style.opacity = '1';
+                }, 10);
+            });
+            
+            // Hide badge when not hovering
+            linkedinBox.addEventListener('mouseleave', function() {
+                badgeContainer.style.opacity = '0';
+                // Wait for fade out animation before hiding
+                setTimeout(() => {
+                    badgeContainer.style.display = 'none';
+                }, 300);
+            });
+            
+            // Move badge with cursor when hovering over LinkedIn box
+            linkedinBox.addEventListener('mousemove', function(e) {
+                badgeContainer.style.left = e.clientX + 'px';
+                badgeContainer.style.top = e.clientY + 'px';
+            });
+        });
+    </script>
 </body>
 </html>
