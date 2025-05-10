@@ -26,8 +26,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: #333;
-			background: linear-gradient(to bottom, #f0f0f0, #d9d9d9);
-            <!--background: #f0f0f0 url('http://brodymcbain.com.au/img/background.png') repeat; -->
+            background: linear-gradient(to bottom, #f0f0f0, #d9d9d9);
         }
 
         .container {
@@ -90,8 +89,7 @@
         .link-box:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-			background-color: #e8f4ff; /* Subtle light background */
-
+            background-color: #e8f4ff; /* Subtle light background */
         }
 
         .link-box img {
@@ -121,6 +119,20 @@
         .link-box span {
             flex-grow: 1;
             text-align: center;
+        }
+
+        .LI-profile-badge {
+            display: none;
+        }
+
+        .link-box:hover .LI-profile-badge {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
@@ -162,6 +174,10 @@
                     <span>LinkedIn</span>
                     <img src="http://brodymcbain.com.au/img/linkedin.png" alt="LinkedIn">
                 </a>
+                <!-- LinkedIn Public Badge -->
+                <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="brodymcbain" data-version="v1">
+                    <a class="badge-base__link LI-simple-link" href="https://au.linkedin.com/in/brodymcbain?trk=profile-badge">Brody McBain</a>
+                </div>
             </div>
             <div class="link-box">
                 <a href="mailto:brody.mcbain@gmail.com" target="_blank">
