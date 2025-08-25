@@ -39,7 +39,14 @@
             text-align: center;
             padding: 20px;
         }
-
+		.profile-photo {
+    		width: 180px;
+		    height: 180px;
+		    border-radius: 50%;       /* makes it circular */
+		    object-fit: cover;
+		    margin-bottom: 20px;
+		    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+		}
         .name {
             font-size: 2.5rem;
             font-weight: 600;
@@ -141,6 +148,11 @@
 </head>
 <body>
     <div class="container">
+        <img 
+            src="http://brodymcbain.com.au/img/profile.jpg" 
+            alt="Brody McBain" 
+            class="profile-photo"
+        >
         <div class="name">Brody McBain</div>
         <div class="subname">I.T. Professional</div>
         <div class="subname2">Newcastle, NSW</div>
@@ -179,6 +191,7 @@
     </div>
 </body>
 </html>
+
 
 
 
